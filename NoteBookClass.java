@@ -1,6 +1,5 @@
-import java.util.List;
+public class NoteBookClass {
 
-public class NoteBookClass{
     private String AllName; // полное название ноутбука
     private String OpSys; // назвение и версия операционной системы
     private String color; // цвет ноутбука
@@ -9,7 +8,8 @@ public class NoteBookClass{
     private double weight; // вес ноутбука
     private double price; // цена ноутбука
 
-  public void NoteBook (String AllName, String OpSys, String color, int RAM,
+    //для домашних котов
+   public NoteBookClass (String  AllName, String  OpSys, String  color, int RAM,
 			int Hd, double weight, double price)
   {
     this.AllName = AllName;
@@ -20,7 +20,7 @@ public class NoteBookClass{
     this.weight = weight;
     this.price = price;
   }
-
+  
   public String GetAllName ()
   {
     return AllName;
@@ -96,12 +96,23 @@ public class NoteBookClass{
   {
     this.price = price;
   }  
-  
+    
+    public NoteBookClass() {
+        System.out.println("Неверный запрос");
+    }
+    
+    @Override
+    public String toString() {
+        return "NoteBookClass{"
+                + "AllName='" + AllName + '\''
+                + ", OpSys=" + OpSys
+                + ", color=" + color
+                + ", RAM=" + RAM
+                + ", Hd=" + Hd
+                + ", weight=" + weight
+                + ", price=" + price
+                + '}';
+    }
 
-
-
-
-
-
-
+    
 }
