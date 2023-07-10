@@ -15,13 +15,30 @@
 Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 *******************************************************************************/
 
+import java.util.HashSet;
 public class Task {
+    
+     public static HashSet GenerateHashSet(){
+         HashSet <Object> ObjSet = new HashSet<>();
+         System.out.println("Test1");
+         return ObjSet;
+         
+     }
+         
+     
 
     public static void main(String[] args) {
+        HashSet <Object> ObjSet1 = new HashSet<>(); 
+        ObjSet1 = GenerateHashSet();   
+        
+        
+        HashSet <Object> ObjSet = new HashSet<>(); // создаю множество
 
-        NoteBookClass NoteBook1 = new NoteBookClass("B","a", "Q", 4,5,6f,7f);
+        NoteBookClass NoteBook1 = new NoteBookClass("Dell","Windows10", "green", 4,5,6f,7f);
+        ObjSet.add(NoteBook1);
+        System.out.println(ObjSet); // вывод на экран множества
         NoteBookClass NoteBook2 = new NoteBookClass();
-        System.out.println(NoteBook1.getColor());
+        System.out.println(NoteBook1.getColor()); 
         NoteBook1.setColor("red");
         System.out.println(NoteBook1.getColor());
         System.out.println(NoteBook1.toString());
