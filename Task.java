@@ -24,5 +24,6 @@ public class Task {
         System.out.println(NoteBook1.getColor());
         NoteBook1.setColor("red");
         System.out.println(NoteBook1.getColor());
+        System.out.println(NoteBook1.toString());
     }
 }
