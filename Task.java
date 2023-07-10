@@ -16,7 +16,8 @@
 *******************************************************************************/
 
 // https://developer.alexanderklimov.ru/android/java/set.php
-import java.util.HashSet;
+
+import java.util.*;
 public class Task {
     
      public static HashSet GenerateHashSet(){
@@ -31,7 +32,6 @@ public class Task {
          
          return ObjSet;
      }
-         
      
 
     public static void main(String[] args) {
@@ -39,7 +39,17 @@ public class Task {
         ObjSet1 = GenerateHashSet();
         //System.out.println(ObjSet1);
         for (Object integer : ObjSet1) {
-            System.out.println(integer);
+            String str1 = integer.toString();
+            char c = str1.charAt(2);
+            System.out.println(c);
         }
+        
+        for (Object integer : ObjSet1) {
+            System.out.println(integer);
     }
+    
+      for (Object integer : ObjSet1) {
+            System.out.println(integer.get("RAM"));
+    }
+}
 }
