@@ -15,9 +15,14 @@
 Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 *******************************************************************************/
 
-public class Task
-{
-	public static void main(String[] args) {
-		System.out.println("Hello World");
-	}
+public class Task {
+
+    public static void main(String[] args) {
+
+        NoteBookClass NoteBook1 = new NoteBookClass("B","a", "Q", 4,5,6f,7f);
+        NoteBookClass NoteBook2 = new NoteBookClass();
+        System.out.println(NoteBook1.getColor());
+        NoteBook1.setColor("red");
+        System.out.println(NoteBook1.getColor());
+    }
 }
