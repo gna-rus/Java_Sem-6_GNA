@@ -103,14 +103,16 @@ public class NoteBookClass {
     
     @Override
     public String toString() {
+      String weightF = String.format("%.2f", weight);
+      String priceF = String.format("%.2f", price);
         return "NoteBookClass{"
-                + "AllName='" + AllName + '\''
-                + ", OpSys=" + OpSys
-                + ", color=" + color
+                + "AllName = '" + AllName + '\''
+                + ", OpSys = " + OpSys
+                + ", color = " + color
                 + ", RAM=" + RAM
                 + ", Hd=" + Hd
-                + ", weight=" + weight
-                + ", price=" + price
+                + ", weight=" + weightF
+                + ", price=" + priceF
                 + '}';
     }
 
