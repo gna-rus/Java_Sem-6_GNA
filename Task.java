@@ -19,6 +19,7 @@
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.*;
 
 public class Task {
 
@@ -26,17 +27,17 @@ public class Task {
     public static HashSet GenerateHashSet() {
         HashSet<Object> ObjSet = new HashSet<>();
 
-        NoteBookClass NoteBook1 = new NoteBookClass("Dell", "Windows10", "green", 4, 5, 6f, 7f);
+        NoteBookClass NoteBook1 = new NoteBookClass("Dell", "Windows10", "green", 42, 5, 6f, 7f);
         ObjSet.add(NoteBook1);
-        NoteBookClass NoteBook2 = new NoteBookClass("Mac", "MacOS", "blue", 4, 5, 6f, 7f);
+        NoteBookClass NoteBook2 = new NoteBookClass("Mac", "MacOS", "blue", 400, 5, 6f, 7f);
         ObjSet.add(NoteBook2);
-        NoteBookClass NoteBook3 = new NoteBookClass("Accer", "Windows8", "white", 4, 5, 6f, 7f);
+        NoteBookClass NoteBook3 = new NoteBookClass("Accer", "Windows8", "white", 46, 5, 6f, 7f);
         ObjSet.add(NoteBook3);
-        NoteBookClass NoteBook4 = new NoteBookClass("Lenovo", "Windows8", "black", 4, 5, 6f, 7f);
+        NoteBookClass NoteBook4 = new NoteBookClass("Lenovo", "Windows8", "black", 14, 5, 6f, 7f);
         ObjSet.add(NoteBook4);
-        NoteBookClass NoteBook5 = new NoteBookClass("Hp", "Windows8", "white", 4, 5, 6f, 7f);
+        NoteBookClass NoteBook5 = new NoteBookClass("Hp", "Windows8", "white", 454, 5, 6f, 7f);
         ObjSet.add(NoteBook5);
-        NoteBookClass NoteBook6 = new NoteBookClass("Asus", "Windows8", "black", 4, 5, 6f, 7f);
+        NoteBookClass NoteBook6 = new NoteBookClass("Asus", "Windows8", "black", 4986, 5, 6f, 7f);
         ObjSet.add(NoteBook6);
 
         return ObjSet;
@@ -148,8 +149,34 @@ public class Task {
     }
     // Функция фильтрации по минимальным параметрам (печать в соответствии с hash)
     public static void print_filter_result(HashMap Value1Hash, HashSet ObjSet1){
-        System.out.println("!!!!!!");
+        Set<String> keys = Value1Hash.keySet(); // создаю множество всех ключей hash-апроса
+        
+        // Цикл в цикле: пробегаюсь по всем ключам hash-апроса и сравниваю результат запроса со значениями из БД
+        for (Object integerKey : keys) {
+            for (Object integerBig : ObjSet1){
+            int StartID = FindFirstIndexOf(integerBig.toString(), integerKey.toString());
+            int FinalID = StartID + integerKey.toString().length();
+            String Word = FindLastIndexOf(integerBig.toString(), FinalID);
+            Double number = Double.parseDouble(Word);
+            //System.out.println(number);
+            Double rez = Double.parseDouble(Value1Hash.get(integerKey).toString());
+            if (rez < number){
+                System.out.println(integerBig);
+            }
+                
+            }
+            }
+        
+            Stop_program();
     }
+    
+    public static void Stop_program(){
+        System.out.print("Для продолжения введите любую букву ");
+        Scanner scanner = new Scanner(System.in);
+        String num = scanner.nextLine();
+    }
+        
+    
     
     
     
