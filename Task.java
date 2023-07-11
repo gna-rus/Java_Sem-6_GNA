@@ -17,6 +17,7 @@
 
 // https://developer.alexanderklimov.ru/android/java/set.php
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Task {
 
@@ -41,7 +42,7 @@ public class Task {
     }
 
 
-    // Определение значения того или иного параметра в строке по индексам
+    // Определение значения того или иного параметра ноутбука в строке по индексам
     public static String FindLastIndexOf(String BigStr, int StartIndex) {
         String word = "";
         for (int i = StartIndex + 1; i < BigStr.length(); i++) {
@@ -55,31 +56,76 @@ public class Task {
             }
         }
 
-        System.out.println(word);
+        
         return word;
     }
+    ////
+    // функция вывода на экран множества
+    public static void print_set_of_note(HashSet ObjSet1){
+        for (Object str1 : ObjSet1){
+            System.out.println(str1);
+        }
+    }
+    
+    ////
+    public static void filter_of_name(HashSet ObjSet1) {
+        HashSet<String> StrSetNote = new HashSet<>(); // множество только для названий ноутбуков
+        HashSet<String> StrSetFindNote = new HashSet<>(); // множество с искомыми ноутбуками
+        for (Object integer : ObjSet1) {
+            String SmallStr = "AllName"; // тип параметра
+            int StartID = FindFirstIndexOf(integer.toString(), SmallStr); // ищу индекс начала слова
+            int FinalID = StartID + SmallStr.length(); // ищу индекс конца слова
+            String Word = FindLastIndexOf(integer.toString(), FinalID);
+            StrSetNote.add(Word);
+    }
+    print_set_of_note(StrSetNote);
+    String find = " ";
+    System.out.print("Какая модель ноутбука вас интересует? ");
+            Scanner scanner = new Scanner(System.in);
+            find = scanner.nextLine();
+    for (Object String1 : ObjSet1) 
+    {
+        boolean contains = String1.toString().contains(find);
+        if (contains == true){
+            System.out.println(String1);
+        }
+    }
+    
+    }
+    
+    
 
 
     public static void main(String[] args) {
         HashSet<Object> ObjSet1 = new HashSet<>();
         ObjSet1 = GenerateHashSet();
         //System.out.println(ObjSet1);
-        for (Object integer : ObjSet1) {
-            String str1 = integer.toString();
-            char c = str1.charAt(2);
-            System.out.println(c);
-        }
+        
+        // Меню
+        System.out.println("Меню фильтрации: \n1 - По названию ноутбука;\n2 - По ОС ноутбука;");
+        System.out.println("3 - По цвету ноутбука; \n4 - По обьему RAM; \n5 - По обьему HD;");
+        System.out.println("6 - По весу ноутбука; \n7 - По цене ноутбука; \n8 - Выход.");
+        
 
         for (Object integer : ObjSet1) {
             System.out.println(integer.toString());
         }
 
-        for (Object integer : ObjSet1) {
-            String SmallStr = "OpSys"; // тип параметра
-            int StartID = FindFirstIndexOf(integer.toString(), SmallStr); // ищу индекс начала слова
-            System.out.println(StartID + " " + SmallStr.length());
-            int FinalID = StartID + SmallStr.length(); // ищу индекс конца слова
-            String Word = FindLastIndexOf(integer.toString(), FinalID);
+        
+            
+        int num = 0;
+        while (num != 5) {
+            System.out.print("Введите число: ");
+            Scanner scanner = new Scanner(System.in);
+            num = scanner.nextInt();
+            switch (num){
+                case 1: filter_of_name(ObjSet1);
+                continue;
+                case 8:
+                break;
+                
+            }
+        }  
+            
         }
     }
-}
