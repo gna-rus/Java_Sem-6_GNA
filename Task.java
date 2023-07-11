@@ -68,22 +68,23 @@ public class Task {
     }
     
     ////
-    public static void filter_of_name(HashSet ObjSet1) {
-        HashSet<String> StrSetNote = new HashSet<>(); // множество только для названий ноутбуков
-        HashSet<String> StrSetFindNote = new HashSet<>(); // множество с искомыми ноутбуками
+    // функция поиска по стринг (название ноутбука и название ОС)
+    public static void filter_of_name(HashSet ObjSet1, String FindStr) {
+        HashSet<String> StrSetNote = new HashSet<>(); // множество только различных параметров
+       
         for (Object integer : ObjSet1) {
-            String SmallStr = "AllName"; // тип параметра
+            String SmallStr = FindStr; // Искомый параметр 
             int StartID = FindFirstIndexOf(integer.toString(), SmallStr); // ищу индекс начала слова
-            int FinalID = StartID + SmallStr.length(); // ищу индекс конца слова
-            String Word = FindLastIndexOf(integer.toString(), FinalID);
-            StrSetNote.add(Word);
+            int FinalID = StartID + SmallStr.length(); // ищу индекс конца слова 
+            String Word = FindLastIndexOf(integer.toString(), FinalID); // нахожу значение, что соответствует параметру
+            StrSetNote.add(Word); // генерирую множество различных параметров
     }
-    print_set_of_note(StrSetNote);
+    print_set_of_note(StrSetNote); // вывожу на экран найденные все наименования
     String find = " ";
-    System.out.print("Какая модель ноутбука вас интересует? ");
+    System.out.print("Введите наименование? ");
             Scanner scanner = new Scanner(System.in);
             find = scanner.nextLine();
-    for (Object String1 : ObjSet1) 
+    for (Object String1 : ObjSet1) // вывожу на экран все ноутбуки с определенным имененм
     {
         boolean contains = String1.toString().contains(find);
         if (contains == true){
@@ -92,6 +93,8 @@ public class Task {
     }
     
     }
+    ////
+    
     
     
 
@@ -110,8 +113,6 @@ public class Task {
         for (Object integer : ObjSet1) {
             System.out.println(integer.toString());
         }
-
-        
             
         int num = 0;
         while (num != 5) {
@@ -119,7 +120,9 @@ public class Task {
             Scanner scanner = new Scanner(System.in);
             num = scanner.nextInt();
             switch (num){
-                case 1: filter_of_name(ObjSet1);
+                case 1: filter_of_name(ObjSet1, "AllName");
+                continue;
+                case 2: filter_of_name(ObjSet1, "OpSys");
                 continue;
                 case 8:
                 break;
