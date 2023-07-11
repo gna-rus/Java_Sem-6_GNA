@@ -15,6 +15,7 @@
  Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
  *******************************************************************************/
 
+// https://developer.alexanderklimov.ru/android/java/set.php
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -26,18 +27,28 @@ public class Task {
     public static HashSet GenerateHashSet() {
         HashSet<Object> ObjSet = new HashSet<>();
 
-        NoteBookClass NoteBook1 = new NoteBookClass("Dell", "Windows10", "green", 42, 5, 6f, 7f);
+        NoteBookClass NoteBook1 = new NoteBookClass("Dell", "Win11", "green", 4, 128, 1.63f, 21.632f);
         ObjSet.add(NoteBook1);
-        NoteBookClass NoteBook2 = new NoteBookClass("Mac", "MacOS", "blue", 400, 5, 6f, 7f);
+        NoteBookClass NoteBook2 = new NoteBookClass("MacBook", "MacOS", "blue", 8, 256, 1.67f, 126.425f);
         ObjSet.add(NoteBook2);
-        NoteBookClass NoteBook3 = new NoteBookClass("Accer", "Windows8", "white", 46, 5, 6f, 7f);
+        NoteBookClass NoteBook3 = new NoteBookClass("Acer", "WinHome", "white", 4, 128, 1.65f, 30.130f);
         ObjSet.add(NoteBook3);
-        NoteBookClass NoteBook4 = new NoteBookClass("Lenovo", "Windows8", "black", 14, 5, 6f, 7f);
+        NoteBookClass NoteBook4 = new NoteBookClass("Lenovo", "Windows8", "black", 32, 1024, 2.0f, 490.432f);
         ObjSet.add(NoteBook4);
-        NoteBookClass NoteBook5 = new NoteBookClass("Hp", "Windows8", "white", 454, 5, 6f, 7f);
+        NoteBookClass NoteBook5 = new NoteBookClass("Hp", "FreeDos", "white", 8, 256, 1.75f, 90.058f);
         ObjSet.add(NoteBook5);
-        NoteBookClass NoteBook6 = new NoteBookClass("Asus", "Windows8", "black", 4986, 5, 6f, 7f);
+        NoteBookClass NoteBook6 = new NoteBookClass("Asus", "Windows8", "black", 8, 512, 1.7f, 41.171f);
         ObjSet.add(NoteBook6);
+        NoteBookClass NoteBook7 = new NoteBookClass("Asus", "Win11", "black", 8, 512, 1.8f, 45.361f);
+        ObjSet.add(NoteBook7);
+        NoteBookClass NoteBook8 = new NoteBookClass("Hp", "WinHome", "white", 16, 512, 1.46f, 67.851f);
+        ObjSet.add(NoteBook8);
+        NoteBookClass NoteBook9 = new NoteBookClass("MacBook", "MacOS", "blue", 32, 1024, 1.6f, 311.250f);
+        ObjSet.add(NoteBook9);
+        NoteBookClass NoteBook10 = new NoteBookClass("Dell", "Linux", "green", 8, 512, 1.52f, 66.212f);
+        ObjSet.add(NoteBook10);
+        NoteBookClass NoteBook11 = new NoteBookClass("Lenovo", "Linux", "black", 8, 512, 1.4f, 84.228f);
+        ObjSet.add(NoteBook11);
 
         return ObjSet;
     }
@@ -199,7 +210,6 @@ public class Task {
                 Stop_program();
                 continue;
                 case 5:
-                Stop_program();
                 break;
             }
         } 
