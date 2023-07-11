@@ -18,6 +18,7 @@
 // https://developer.alexanderklimov.ru/android/java/set.php
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Task {
 
@@ -100,6 +101,14 @@ public class Task {
     
     }
     ////
+    public static void print_menu(){
+         // Меню
+        System.out.println("Меню фильтрации: \n1 - По названию ноутбука;\n2 - По ОС ноутбука;");
+        System.out.println("3 - По цвету ноутбука; \n4 - Минимальным параметрам; \n5 - Выход.");
+        
+    }
+    
+    ////
     // Меню для параметров
     public static void print_menu_of_value()
     {
@@ -109,7 +118,34 @@ public class Task {
     ////
     // Функция фильтрации по минимальным параметрам
     public static void filter_of_value(HashSet ObjSet1){
-        print_menu_of_value();
+        HashMap<String, Double> Value1Hash = new HashMap<>();
+        
+        int num = 0;
+        while (num != 5) {
+            print_menu_of_value();
+            System.out.println(Value1Hash);
+            double Value1 = 0f;
+            System.out.print("Введите номер парметра: ");
+            Scanner scanner = new Scanner(System.in);
+            num = scanner.nextInt();
+            if (num == 5){break;}
+            System.out.print("Введите значение парметра: ");
+            Value1 = scanner.nextDouble();
+            switch (num){
+                case 1:  Value1Hash.put("RAM", Value1);
+                continue;
+                case 2:  Value1Hash.put("Hd", Value1);
+                continue;
+                case 3:  Value1Hash.put("weight", Value1);
+                continue;
+                case 4:  Value1Hash.put("price", Value1);
+                continue;
+                
+                case 5:
+                break;
+                
+            }
+        }  
     }
     
     
@@ -121,17 +157,13 @@ public class Task {
         ObjSet1 = GenerateHashSet();
         //System.out.println(ObjSet1);
         
-        // Меню
-        System.out.println("Меню фильтрации: \n1 - По названию ноутбука;\n2 - По ОС ноутбука;");
-        System.out.println("3 - По цвету ноутбука; \n4 - Минимальным параметрам; \n5 - Выход.");
-        
-
         for (Object integer : ObjSet1) {
             System.out.println(integer.toString());
         }
             
         int num = 0;
         while (num != 5) {
+            print_menu();
             System.out.print("Введите число: ");
             Scanner scanner = new Scanner(System.in);
             num = scanner.nextInt();
