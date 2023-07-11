@@ -105,7 +105,6 @@ public class Task {
          // Меню
         System.out.println("Меню фильтрации: \n1 - По названию ноутбука;\n2 - По ОС ноутбука;");
         System.out.println("3 - По цвету ноутбука; \n4 - Минимальным параметрам; \n5 - Выход.");
-        
     }
     
     ////
@@ -116,7 +115,7 @@ public class Task {
     System.out.println("3 - weight; \n4 - price; \n5 - Выход.");    
     }
     ////
-    // Функция фильтрации по минимальным параметрам
+    // Функция фильтрации по минимальным параметрам (генерация hash запроса)
     public static void filter_of_value(HashSet ObjSet1){
         HashMap<String, Double> Value1Hash = new HashMap<>();
         
@@ -140,12 +139,16 @@ public class Task {
                 continue;
                 case 4:  Value1Hash.put("price", Value1);
                 continue;
-                
                 case 5:
                 break;
-                
             }
-        }  
+        }
+        print_filter_result(Value1Hash, ObjSet1);
+        
+    }
+    // Функция фильтрации по минимальным параметрам (печать в соответствии с hash)
+    public static void print_filter_result(HashMap Value1Hash, HashSet ObjSet1){
+        System.out.println("!!!!!!");
     }
     
     
@@ -178,7 +181,6 @@ public class Task {
                 continue;
                 case 5:
                 break;
-                
             }
         }  
             
