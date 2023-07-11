@@ -15,7 +15,6 @@
  Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
  *******************************************************************************/
 
-// https://developer.alexanderklimov.ru/android/java/set.php
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -49,7 +48,6 @@ public class Task {
         return index;
     }
 
-
     // Определение значения того или иного параметра ноутбука в строке по индексам
     public static String FindLastIndexOf(String BigStr, int StartIndex) {
         String word = "";
@@ -63,11 +61,9 @@ public class Task {
                 break;
             }
         }
-
-        
         return word;
     }
-    ////
+    
     // функция вывода на экран множества
     public static void print_set_of_note(HashSet ObjSet1){
         for (Object str1 : ObjSet1){
@@ -75,8 +71,7 @@ public class Task {
         }
     }
     
-    ////
-    // функция поиска по стринг (название ноутбука и название ОС)
+    // функция поиска по стринг (название ноутбука, название ОС, цвет)
     public static void filter_of_name(HashSet ObjSet1, String FindStr) {
         HashSet<String> StrSetNote = new HashSet<>(); // множество только различных параметров
        
@@ -85,37 +80,36 @@ public class Task {
             int StartID = FindFirstIndexOf(integer.toString(), SmallStr); // ищу индекс начала слова
             int FinalID = StartID + SmallStr.length(); // ищу индекс конца слова 
             String Word = FindLastIndexOf(integer.toString(), FinalID); // нахожу значение, что соответствует параметру
-            StrSetNote.add(Word); // генерирую множество различных параметров
+            StrSetNote.add(Word); // генерирую множество различных значений параметров
     }
-    print_set_of_note(StrSetNote); // вывожу на экран найденные все наименования
+    print_set_of_note(StrSetNote); // вывожу на экран найденные все наименования (различные названия, ОС, цвета)
     String find = " ";
     System.out.print("Введите наименование? ");
             Scanner scanner = new Scanner(System.in);
             find = scanner.nextLine();
-    for (Object String1 : ObjSet1) // вывожу на экран все ноутбуки с определенным имененм
+    for (Object String1 : ObjSet1) // вывожу на экран все ноутбуки с определенным параметром
     {
-        boolean contains = String1.toString().contains(find);
+        boolean contains = String1.toString().contains(find); // проверяю, есть или нет значение параметра в описании ноутбука
         if (contains == true){
             System.out.println(String1);
         }
     }
     
     }
-    ////
+    
     public static void print_menu(){
          // Меню
         System.out.println("Меню фильтрации: \n1 - По названию ноутбука;\n2 - По ОС ноутбука;");
         System.out.println("3 - По цвету ноутбука; \n4 - Минимальным параметрам; \n5 - Выход.");
     }
     
-    ////
     // Меню для параметров
     public static void print_menu_of_value()
     {
     System.out.println("Меню фильтрации по минимальным параметрам: \n1 - RAM;\n2 - Hd;");
     System.out.println("3 - weight; \n4 - price; \n5 - Выход.");    
     }
-    ////
+    
     // Функция фильтрации по минимальным параметрам (генерация hash запроса)
     public static void filter_of_value(HashSet ObjSet1){
         HashMap<String, Double> Value1Hash = new HashMap<>();
@@ -175,17 +169,11 @@ public class Task {
         Scanner scanner = new Scanner(System.in);
         String num = scanner.nextLine();
     }
-        
-    
-    
-    
-    
 
 
     public static void main(String[] args) {
         HashSet<Object> ObjSet1 = new HashSet<>();
         ObjSet1 = GenerateHashSet();
-        //System.out.println(ObjSet1);
         
         for (Object integer : ObjSet1) {
             System.out.println(integer.toString());
@@ -199,17 +187,22 @@ public class Task {
             num = scanner.nextInt();
             switch (num){
                 case 1: filter_of_name(ObjSet1, "AllName");
+                Stop_program();
                 continue;
                 case 2: filter_of_name(ObjSet1, "OpSys");
+                Stop_program();
                 continue;
                 case 3: filter_of_name(ObjSet1, "color");
+                Stop_program();
                 continue;
                 case 4: filter_of_value(ObjSet1);
+                Stop_program();
                 continue;
                 case 5:
+                Stop_program();
                 break;
             }
-        }  
+        } 
             
         }
     }
