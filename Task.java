@@ -31,6 +31,12 @@ public class Task {
         ObjSet.add(NoteBook2);
         NoteBookClass NoteBook3 = new NoteBookClass("Accer", "Windows8", "white", 4, 5, 6f, 7f);
         ObjSet.add(NoteBook3);
+        NoteBookClass NoteBook4 = new NoteBookClass("Lenovo", "Windows8", "black", 4, 5, 6f, 7f);
+        ObjSet.add(NoteBook4);
+        NoteBookClass NoteBook5 = new NoteBookClass("Hp", "Windows8", "white", 4, 5, 6f, 7f);
+        ObjSet.add(NoteBook5);
+        NoteBookClass NoteBook6 = new NoteBookClass("Asus", "Windows8", "black", 4, 5, 6f, 7f);
+        ObjSet.add(NoteBook6);
 
         return ObjSet;
     }
@@ -94,6 +100,17 @@ public class Task {
     
     }
     ////
+    // Меню для параметров
+    public static void print_menu_of_value()
+    {
+    System.out.println("Меню фильтрации по минимальным параметрам: \n1 - RAM;\n2 - Hd;");
+    System.out.println("3 - weight; \n4 - price; \n5 - Выход.");    
+    }
+    ////
+    // Функция фильтрации по минимальным параметрам
+    public static void filter_of_value(HashSet ObjSet1){
+        print_menu_of_value();
+    }
     
     
     
@@ -106,8 +123,7 @@ public class Task {
         
         // Меню
         System.out.println("Меню фильтрации: \n1 - По названию ноутбука;\n2 - По ОС ноутбука;");
-        System.out.println("3 - По цвету ноутбука; \n4 - По обьему RAM; \n5 - По обьему HD;");
-        System.out.println("6 - По весу ноутбука; \n7 - По цене ноутбука; \n8 - Выход.");
+        System.out.println("3 - По цвету ноутбука; \n4 - Минимальным параметрам; \n5 - Выход.");
         
 
         for (Object integer : ObjSet1) {
@@ -124,7 +140,11 @@ public class Task {
                 continue;
                 case 2: filter_of_name(ObjSet1, "OpSys");
                 continue;
-                case 8:
+                case 3: filter_of_name(ObjSet1, "color");
+                continue;
+                case 4: filter_of_value(ObjSet1);
+                continue;
+                case 5:
                 break;
                 
             }
