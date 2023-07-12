@@ -116,7 +116,8 @@ public class Task {
     public static void print_menu() {
         // Меню
         System.out.println("Меню фильтрации: \n1 - По названию ноутбука;\n2 - По ОС ноутбука;");
-        System.out.println("3 - По цвету ноутбука; \n4 - Минимальным параметрам; \n5 - Выход.");
+        System.out.println("3 - По цвету ноутбука; \n4 - Минимальным параметрам; \n5 - Очистить фильтр поиск;");
+        System.out.println("6 - Выход.");
     }
 
     // Меню для параметров
@@ -195,14 +196,12 @@ public class Task {
 
     public static void main(String[] args) {
         HashSet<Object> ObjSet1 = new HashSet<>();
-        HashSet<Object> FindStrSetNote1 = new HashSet<>();
         ObjSet1 = GenerateHashSet();
 
         // вывожу в консоль всю БД по ноутбукам без первых 13 символом (т.е. без названия класса NoteBookClass)
         for (Object integer : ObjSet1) {
             System.out.println(integer.toString().substring(13));
         }
-        
 
         int num = 0;
         while (num != 5) {
@@ -228,6 +227,11 @@ public class Task {
                     Stop_program();
                     continue;
                 case 5:
+                    ObjSet1 = GenerateHashSet();
+                    System.out.println("Фильтр очищен!");
+                    Stop_program();
+                    continue;
+                case 6:
                     break;
             }
         }
