@@ -83,7 +83,7 @@ public class Task {
     }
 
     // функция поиска по стринг (название ноутбука, название ОС, цвет)
-    public static void filter_of_name(HashSet ObjSet1, String FindStr) {
+    public static HashSet filter_of_name(HashSet ObjSet1, String FindStr) {
         HashSet<String> StrSetNote = new HashSet<>(); // множество только различных параметров
         HashSet<Object> FindStrSetNote = new HashSet<>();
         for (Object integer : ObjSet1) {
@@ -109,6 +109,7 @@ public class Task {
             }
         }
         System.out.println("________________________");
+        return FindStrSetNote;
         
     }
 
@@ -194,6 +195,7 @@ public class Task {
 
     public static void main(String[] args) {
         HashSet<Object> ObjSet1 = new HashSet<>();
+        HashSet<Object> FindStrSetNote1 = new HashSet<>();
         ObjSet1 = GenerateHashSet();
 
         // вывожу в консоль всю БД по ноутбукам без первых 13 символом (т.е. без названия класса NoteBookClass)
@@ -210,15 +212,15 @@ public class Task {
             num = scanner.nextInt();
             switch (num) {
                 case 1:
-                    filter_of_name(ObjSet1, "Name");
+                    ObjSet1 = filter_of_name(ObjSet1, "Name");
                     Stop_program();
                     continue;
                 case 2:
-                    filter_of_name(ObjSet1, "OpSys");
+                    ObjSet1 = filter_of_name(ObjSet1, "OpSys");
                     Stop_program();
                     continue;
                 case 3:
-                    filter_of_name(ObjSet1, "color");
+                    ObjSet1 = filter_of_name(ObjSet1, "color");
                     Stop_program();
                     continue;
                 case 4:
