@@ -132,9 +132,9 @@ public class Task {
 
         int num = 0;
         while (num != 5) {
-            print_menu_of_value();
-            System.out.println(Value1Hash);
-            double Value1 = 0f;
+            print_menu_of_value(); // функция вызова в консоль меню параметров
+            System.out.println(Value1Hash); // выводит информацию какие параметры уже введены 
+            double Value1 = 0f; // переменная для значений параметров
             System.out.print("Введите номер парметра: ");
             Scanner scanner = new Scanner(System.in);
             num = scanner.nextInt();
@@ -204,11 +204,13 @@ public class Task {
         }
 
         int num = 0;
-        while (num != 5) {
+        while (true) {
             print_menu();
             System.out.print("Введите число: ");
             Scanner scanner = new Scanner(System.in);
             num = scanner.nextInt();
+            if (num == 6){break;}
+        
             switch (num) {
                 case 1:
                     ObjSet1 = filter_of_name(ObjSet1, "Name");
@@ -231,8 +233,6 @@ public class Task {
                     System.out.println("Фильтр очищен!");
                     Stop_program();
                     continue;
-                case 6:
-                    break;
             }
         }
     }
