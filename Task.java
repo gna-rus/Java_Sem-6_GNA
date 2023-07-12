@@ -78,17 +78,17 @@ public class Task {
     // функция вывода на экран множества
     public static void print_set_of_note(HashSet ObjSet1) {
         for (Object str1 : ObjSet1) {
-            System.out.println(str1);
+            System.out.println(str1.toString());
         }
     }
 
     // функция поиска по стринг (название ноутбука, название ОС, цвет)
     public static void filter_of_name(HashSet ObjSet1, String FindStr) {
         HashSet<String> StrSetNote = new HashSet<>(); // множество только различных параметров
-
+        HashSet<Object> FindStrSetNote = new HashSet<>();
         for (Object integer : ObjSet1) {
             String SmallStr = FindStr; // Искомый параметр 
-            int StartID = FindFirstIndexOf(integer.toString(), SmallStr); // ищу индекс начала слова
+            int StartID = FindFirstIndexOf(integer.toString(), SmallStr)+1; // ищу индекс начала слова
             int FinalID = StartID + SmallStr.length(); // ищу индекс конца слова 
             String Word = FindLastIndexOf(integer.toString(), FinalID); // нахожу значение, что соответствует параметру
             StrSetNote.add(Word); // генерирую множество различных значений параметров
@@ -96,16 +96,20 @@ public class Task {
 
         print_set_of_note(StrSetNote); // вывожу на экран найденные все наименования (различные названия, ОС, цвета)
         String find = " ";
-        System.out.print("Введите наименование? ");
+        System.out.print("Введите наименование? "); // Провожу выборку из тех вариантов что есть в HashSet
         Scanner scanner = new Scanner(System.in);
         find = scanner.nextLine();
+        System.out.println("________________________");
         for (Object String1 : ObjSet1) // вывожу на экран все ноутбуки с определенным параметром
         {
             boolean contains = String1.toString().contains(find); // проверяю, есть или нет значение параметра в описании ноутбука
             if (contains == true) {
                 System.out.println(String1);
+                FindStrSetNote.add(String1);
             }
         }
+        System.out.println("________________________");
+        
     }
 
     public static void print_menu() {
@@ -117,7 +121,7 @@ public class Task {
     // Меню для параметров
     public static void print_menu_of_value() {
         System.out.println("Меню фильтрации по минимальным параметрам: \n1 - RAM;\n2 - Hd;");
-        System.out.println("3 - weight; \n4 - price; \n5 - Выход.");
+        System.out.println("3 - weight; \n4 - price; \n5 - Вывести результат.");
     }
 
     // Функция фильтрации по минимальным параметрам (генерация hash запроса)
@@ -154,7 +158,9 @@ public class Task {
                     break;
             }
         }
+        System.out.println("________________________");
         print_filter_result(Value1Hash, ObjSet1);
+        System.out.println("________________________");
 
     }
 
@@ -177,7 +183,6 @@ public class Task {
                 }
             }
         }
-        Stop_program();
     }
 
     // функция для остановки выполнения программы
@@ -195,6 +200,7 @@ public class Task {
         for (Object integer : ObjSet1) {
             System.out.println(integer.toString().substring(13));
         }
+        
 
         int num = 0;
         while (num != 5) {
@@ -204,7 +210,7 @@ public class Task {
             num = scanner.nextInt();
             switch (num) {
                 case 1:
-                    filter_of_name(ObjSet1, "AllName");
+                    filter_of_name(ObjSet1, "Name");
                     Stop_program();
                     continue;
                 case 2:
